@@ -33,6 +33,7 @@ namespace ClassLibrary1
 
 
 
+
         }
         [TearDown]
         public void teardownmethod()
@@ -74,6 +75,7 @@ namespace ClassLibrary1
             page.openBezbednostniNaukiTab();
             page.titleBezbednostni.Text.Contains("безбедносни ");
         }
+
         [Test]
         public void bezbednostniNaukiVtorSemestar()
         {
@@ -101,6 +103,7 @@ namespace ClassLibrary1
             page.clickEkonomskiFakultet();
             Assert.AreEqual("Економски фалултет", pageEko.ekonomskiTitle.Text);
         }
+
         [Test]
         public void pocesniProfesoriTest()
         {

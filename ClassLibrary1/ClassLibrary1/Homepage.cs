@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
@@ -43,6 +44,29 @@ namespace ClassLibrary1
 
         //element za pocesni profesori
         public IWebElement pocesniProfesori => driver.FindElement(By.CssSelector("a[href='/pocesni-profesori']"));
+
+        //element za FB gore
+        public IWebElement facebook => driver.FindElement(By.CssSelector(".facebook"));
+
+        public IWebElement Tweeter => driver.FindElement(By.CssSelector(".fa.fa-twitter"));
+
+        public IWebElement YouTube => driver.FindElement(By.CssSelector(".fa.fa-youtube-play"));
+
+        //kopce za promena na jazik
+        public IWebElement EnglishButton => driver.FindElement(By.CssSelector(".btn.dropdown-toggle.languageCode"));
+
+        //kopce od dropdaun za EN
+        public IWebElement Eng => driver.FindElement(By.CssSelector(".culture[lang='en']"));
+
+        //Dokaz deka e otvorena stranica na angliski
+        public IWebElement HomeElement => driver.FindElement(By.LinkText("Home"));
+
+        //Element ZA NAS
+        public IWebElement ZaNas => driver.FindElement(By.XPath("//a[contains(text(),'За Нас')]"));
+
+        //Element za TEHNICKA OPREMENOST
+        public IWebElement TehnickaOpremenost2 => driver.FindElement(By.XPath("//a[contains(text(),'Техничка опременост')]"));
+
 
         internal void GoTo()
         {
@@ -95,5 +119,36 @@ namespace ClassLibrary1
             pocesniProfesori.Click();
             return new PocesniProfesoriPAge(driver);
         }
+        public void FacebookClick()
+        {
+            facebook.Click();
+        }
+        //funkcija za context switch
+        public void SwitchToLastTab()
+        {
+            driver.SwitchTo().Window(driver.WindowHandles.Last());
+        }
+
+        internal void TweeterClick()
+        {
+            Tweeter.Click();
+        }
+
+        internal void YouTubeClick()
+        {
+            YouTube.Click();
+        }
+        public void EnglishClick()
+        {
+            EnglishButton.Click();
+            Eng.Click();
+        }
+        //Funkcija klik na ZA NAS -> TEHNICKA OPREMENOST
+        public void TehnickaOpremenost()
+        {
+            ZaNas.Click();
+            TehnickaOpremenost2.Click();
+        }
+
     }
 }

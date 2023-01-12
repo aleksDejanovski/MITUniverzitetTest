@@ -111,5 +111,47 @@ namespace ClassLibrary1
             page.OpenPocesni();
             Assert.AreEqual("Академик др. Жан Митрев", pagePocesni.PocesenProfesor.Text);
         }
+        [Test]
+        public void FacebookFuncionality()
+        {
+            page.GoTo();
+            page.FacebookClick();
+            page.SwitchToLastTab();
+            Assert.IsTrue(driver.Url.Contains("https://www.facebook.com/mituniverzitetskopje"));
+
+        }
+        [Test]
+        public void TweeterFunck()
+        {
+            page.GoTo();
+            page.TweeterClick();
+            page.SwitchToLastTab();
+            Assert.IsTrue(driver.Url.Contains("https://twitter.com/"));
+
+        }
+        [Test]
+        public void YouTubeFunck()
+        {
+            page.GoTo();
+            page.YouTubeClick();
+            page.SwitchToLastTab();
+            Assert.IsTrue(driver.Url.Contains("https://www.youtube.com/"));
+
+        }
+        [Test]
+        public void LanguageFunck()
+        {
+            page.GoTo();
+            page.EnglishClick();
+            Assert.AreEqual("Home", page.HomeElement.Text);
+
+        }
+        [Test]
+        public void TehniuckaOpremenostTest()
+        {
+            page.GoTo();
+            page.TehnickaOpremenost();
+            Assert.IsTrue(driver.Url.Contains("https://www.mit.edu.mk/tehnicka-opremenost"));
+        }
     }
 }

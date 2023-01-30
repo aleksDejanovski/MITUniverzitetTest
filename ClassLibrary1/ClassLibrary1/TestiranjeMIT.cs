@@ -12,15 +12,15 @@ namespace ClassLibrary1
     [TestFixture]
     public class TestiranjeMIT
     {
-        IWebDriver driver;
-        IWebDriver wait;
-        Homepage page;
-        BezbednostniNaukiPage pageBez;
-        EkonomskiFakultetPage pageEko;
-        PocesniProfesoriPAge pagePocesni;
+        public IWebDriver driver;
+        public IWebDriver wait;
+        internal Homepage page;
+        internal BezbednostniNaukiPage pageBez;
+        internal EkonomskiFakultetPage pageEko;
+        internal PocesniProfesoriPAge pagePocesni;
 
         [SetUp]
-        public void setiranje()
+        public void Setiranje()
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
@@ -36,14 +36,14 @@ namespace ClassLibrary1
 
         }
         [TearDown]
-        public void teardownmethod()
+        public void Teardownmethod()
         {
             driver.Quit();
             driver.Dispose();
         }
 
         [Test]
-        public void istorijatTestiranje()
+        public void IstorijatTestiranje()
         {
 
             page.GoTo();
@@ -52,7 +52,7 @@ namespace ClassLibrary1
             Assert.AreEqual("Историјат", page.IstorijaTitle.Text, "Ne e otvorena stranicata za istorijat");
         }
         [Test]
-        public void zaUniverzitetot()
+        public void ZaUniverzitetot()
         {
             page.GoTo();
             page.ClickIstorijaTab();
@@ -61,7 +61,7 @@ namespace ClassLibrary1
 
         }
         [Test]
-        public void novostiNastani()
+        public void NovostiNastani()
         {
             page.GoTo();
             page.ClickNovositiTab();
@@ -69,7 +69,7 @@ namespace ClassLibrary1
             page.NastaniNaslov.Text.Contains("Настани");
         }
         [Test]
-        public void bezbednostniNaukiDaliSeOtvara()
+        public void BezbednostniNaukiDaliSeOtvara()
         {
             page.GoTo();
             page.openBezbednostniNaukiTab();
@@ -77,7 +77,7 @@ namespace ClassLibrary1
         }
 
         [Test]
-        public void bezbednostniNaukiVtorSemestar()
+        public void BezbednostniNaukiVtorSemestar()
         {
             page.GoTo();
             page.openBezbednostniNaukiTab();
@@ -87,7 +87,7 @@ namespace ClassLibrary1
 
         }
         [Test]
-        public void testDaliMozeBezbednostNasokaDaSeOdbere()
+        public void TestDaliMozeBezbednostNasokaDaSeOdbere()
         {
             page.GoTo();
             page.openBezbednostniNaukiTab();
@@ -96,7 +96,7 @@ namespace ClassLibrary1
 
         }
         [Test]
-        public void ekonomskiFakultet()
+        public void EkonomskiFakultet()
         {
             page.GoTo();
             page.fakultetiTab.Click();
@@ -105,7 +105,7 @@ namespace ClassLibrary1
         }
 
         [Test]
-        public void pocesniProfesoriTest()
+        public void PocesniProfesoriTest()
         {
             page.GoTo();
             page.OpenPocesni();
